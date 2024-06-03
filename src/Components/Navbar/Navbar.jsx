@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -6,12 +6,20 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-export default function Navbar({handleSidebar}) {
+import Brightness4 from '@mui/icons-material/Brightness4';
+import Brightness7 from '@mui/icons-material/Brightness7';
+import { ThemeContext } from '../../Themes/Contexts';
+import { useMediaQuery } from '@mui/material';
+
+export default function Navbar({ handleSidebar }) {
+  const screenSize = useMediaQuery('(max-width:768px)')
+  const { mode, setMode } = useContext(ThemeContext)
+  console.log(screenSize, mode, setMode)
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1, background: 'none' }}>
+      <AppBar position="static" sx={{ background: 'transperent', backgroundColor: 'transparent', boxShadow: 'none' }}>
         <Toolbar>
-          <IconButton
+          {screenSize && <IconButton onClick={()=>{handleSidebar(true)}}
             size="large"
             edge="start"
             color="inherit"
@@ -19,11 +27,16 @@ export default function Navbar({handleSidebar}) {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+          </IconButton>}
+          <Typography variant="h1" component="h1" sx={{ flexGrow: 1 }}>
+            Bot AI
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Typography variant="span" fontSize={16} lineHeight={1} component="h3" sx={{ display: '-webkit-inline-flex', alignItems: 'center', justifyContent: 'center', height: 'fit-content',color:'primary' }}>
+            {mode}
+          </Typography>
+            <IconButton onClick={()=>{setMode((prev)=>prev==='dark'?"light":'dark')}}>
+              {mode === 'dark' ? <Brightness4 fontSize='large' /> : <Brightness7 color='white' fontSize='large'/>}
+            </IconButton>
         </Toolbar>
       </AppBar>
     </Box>
