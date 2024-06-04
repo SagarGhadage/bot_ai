@@ -16,7 +16,7 @@ export default function Navbar({ handleSidebar }) {
   const { mode, setMode } = useContext(ThemeContext)
   console.log(screenSize, mode, setMode)
   return (
-    <Box sx={{ flexGrow: 1, background: 'none' }}>
+    <Box sx={{ flexGrow: 0, background: 'none' }}>
       <AppBar position="static" sx={{ background: 'transperent', backgroundColor: 'transparent', boxShadow: 'none' }}>
         <Toolbar>
           {screenSize && <IconButton onClick={()=>{handleSidebar(true)}}
