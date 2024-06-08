@@ -70,7 +70,23 @@ export const getPallete = (mode) => ({
     },
     heading: {
       fontFamily: "Ubuntu, sans-serif",
+      color: "text.primary",
+      fontSize: 20,
+      fontWeight: 700,
+      "@media (max-width:768px)": {
+        fontSize: 22,
+      },
     },
+    subheading: {
+      fontFamily: "Ubuntu, sans-serif",
+      color: "text.primary",
+      fontSize: 16,
+      fontWeight: 400,
+      "@media (max-width:768px)": {
+        fontSize: 14,
+      },
+    },
+
   },
 
   components: {

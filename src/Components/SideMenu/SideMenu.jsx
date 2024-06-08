@@ -4,8 +4,8 @@ import Close from '@mui/icons-material/Close'
 import { ThemeContext } from '../../Themes/Contexts'
 import image from '../../assets/Group 1000011095.png'
 import EditIcon from "../../assets/image 31.png"
-import { useNavigate } from 'react-router-dom'
-export default function SideMenu({ handleClose }) {
+import { useNavigate, useOutletContext } from 'react-router-dom'
+export default function SideMenu({ handleClose,setChats }) {
   const screenSize = useMediaQuery('(max-width:768px)')
   const { mode, setMode } = useContext(ThemeContext)
   const navigate = useNavigate()
@@ -25,6 +25,8 @@ export default function SideMenu({ handleClose }) {
         onClick={() => {
           navigate('')
           handleClose(false)
+          setChats([])
+          
         }}>
         <Box
           component={'img'}
@@ -45,7 +47,8 @@ export default function SideMenu({ handleClose }) {
         />
       </Stack>
       <Stack sx={{ margin: 'auto', width: '90%' }}>
-        <Button onClick={() => { navigate('/history'); handleClose(false) }} sx={{ bgcolor: 'primary.main', color: 'text.primary', background: 'primary.main', mt: 1 }}>Past Conversation</Button>
+        <Button onClick={() => { navigate('/history'); handleClose(false) }} sx={{ bgcolor: 'primary.main', color: 'text.primary', background: 'primary.main', mt: 1 ,'&:hover':{bgcolor:'primary.dark'
+    }}}>Past Conversation</Button>
       </Stack>
     </Box>
   )

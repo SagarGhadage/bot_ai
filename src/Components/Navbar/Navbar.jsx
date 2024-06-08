@@ -14,7 +14,6 @@ import { useMediaQuery } from '@mui/material';
 export default function Navbar({ handleSidebar }) {
   const screenSize = useMediaQuery('(max-width:768px)')
   const { mode, setMode } = useContext(ThemeContext)
-  console.log(screenSize, mode, setMode)
   return (
     <Box sx={{ flexGrow: 0, background: 'none' }}>
       <AppBar position="static" sx={{ background: 'transperent', backgroundColor: 'transparent', boxShadow: 'none' }}>

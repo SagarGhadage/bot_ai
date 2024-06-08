@@ -7,9 +7,12 @@ import { Grid } from '@mui/material'
 import { getPallete } from './Themes/Pallate';
 import CssBaseline from "@mui/material/CssBaseline";
 import SideMenu from './Components/SideMenu/SideMenu'
+import { defaultChats } from './AIData/Data';
+import AIData from './AIData/AIDATA.json';
 function App() {
   const [isOpen, setIsOpen] = useState(false)
   const [mode, setMode] = useState(localStorage.getItem("theme") || "light");
+  const [chats, setChats] = useState([])
 
   const theme = useMemo(() => createTheme(getPallete(mode)), [mode]);
   useEffect(() => {
@@ -40,9 +43,9 @@ function App() {
             height={'100vh'}
             zIndex={{ xs: 2, md: 1 }}
             boxShadow={{ xs: isOpen ? "10" : 0, md: 'none' }}
-          ><SideMenu handleClose={setIsOpen}></SideMenu></Grid>
+          ><SideMenu handleClose={setIsOpen} setChats={setChats} ></SideMenu></Grid>
           <Grid item xs={12} md={9}>
-            <Outlet context={{ isOpen: isOpen,handleSidebar:setIsOpen }}></Outlet>
+            <Outlet context={{ isOpen: isOpen,handleSidebar:setIsOpen ,defaultChats:defaultChats ,AIData,chats,setChats}}></Outlet>
           </Grid>
         </Grid>
       </ThemeProvider>
