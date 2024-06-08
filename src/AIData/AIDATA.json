@@ -1,5 +1,30 @@
 
 [
+  {
+    "id": 0,
+    "question": "hi",
+    "response": "Hi, I am Bot AI! How can I help you?"
+  },
+  {
+    "id": 51,
+    "question": "Hi, what is the weather?",
+    "response": "Enter your Location? OR visit https://weather.com/"
+  },
+  {
+    "id": 52,
+    "question": "Hi, what is my location?",
+    "response": "No Access to your location!"
+  },
+  {
+    "id": 53,
+    "question": "Hi, what is the temperature?",
+    "response": "Featching data..."
+  },
+  {
+    "id": 54,
+    "question": "Hi, how are you?",
+    "response": "I’m here and ready to assist! How can I help you today? 😊"
+  },
     {
       "id": 1,
       "question": "What's the difference between GET and POST requests?",
