@@ -37,7 +37,7 @@ export const getPallete = (mode) => ({
       fontFamily: "Open Sans, sans-serif",
       fontSize: 16,
       fontWeight: 400,
-      lineHeight: 21.79,
+      // lineHeight: 21.79,
       textAlign: 'left',
     },
     h1: {
@@ -45,7 +45,7 @@ export const getPallete = (mode) => ({
       color: mode === "light" ? "#9785BA" : "#D7C7F4",
       fontWeight: 700,
       fontSize: 32,
-      lineHeight:36.77,
+      // lineHeight:36.77,
       "@media (max-width:768px)": {
         fontSize: 28,
       }

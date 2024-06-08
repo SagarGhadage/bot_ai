@@ -42,7 +42,7 @@ function App() {
             boxShadow={{ xs: isOpen ? "10" : 0, md: 'none' }}
           ><SideMenu handleClose={setIsOpen}></SideMenu></Grid>
           <Grid item xs={12} md={9}>
-            <Outlet context={{ isOpen: isOpen }}></Outlet>
+            <Outlet context={{ isOpen: isOpen,handleSidebar:setIsOpen }}></Outlet>
           </Grid>
         </Grid>
       </ThemeProvider>
